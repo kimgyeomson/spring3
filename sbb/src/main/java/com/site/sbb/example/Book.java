@@ -1,4 +1,4 @@
-package com.site.sbb.ex;
+package com.site.sbb.example;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -4,6 +4,7 @@ import com.site.sbb.answer.Answer;
 import com.site.sbb.answer.AnswerRepository;
 import com.site.sbb.question.Question;
 import com.site.sbb.question.QuestionRepository;
+import com.site.sbb.question.QuestionService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,18 @@ class SbbApplicationTests {
 
 	@Autowired
 	private AnswerRepository answerRepository;
+
+	@Autowired
+	private QuestionService questionService;
+
+	@Test
+	void data_test() {
+		for(int i = 1; i <= 300; i++) {
+			String subject = String.format("테스트 데이터:[%03d]", i);
+			String content = "내용 없음";
+			this.questionService.create(subject, content);
+		}
+	}
 
 	// 데이터를 통해 데이터 찾기 VS 데이터를
 	@Transactional
