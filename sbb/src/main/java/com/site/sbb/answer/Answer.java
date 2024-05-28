@@ -1,6 +1,7 @@
 package com.site.sbb.answer;
 
 import com.site.sbb.question.Question;
+import com.site.sbb.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,4 +21,9 @@ public class Answer {
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
+
+    private LocalDateTime modifyDate;
 }
